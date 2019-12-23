@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PrimerASPProject.Models.Producto>
+
+@{
+    ViewBag.Title = "Index ola k ase programando o k ase ";
+}
+
+<h2>ola k ase programando o k ase</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-dark" })
+</p>
+<table class="table " style="text-align:center;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.unidadeseninventario)
+        </th>
+        <th>OPCIONES</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.unidadeseninventario)
+    </td>
+    <td>
+        @Html.ActionLink("EDITAR", "Edit", new { id = item.codigo }, new { @class = "btn btn-success" })
+
+        @Html.ActionLink("DETALLES", "Details", new { id = item.codigo }, new { @class = "btn btn-primary" })
+
+        @Html.ActionLink("ELIMINAR", "Delete", new { id = item.codigo }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>
